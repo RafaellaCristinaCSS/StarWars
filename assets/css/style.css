@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    z-index: 999;
+}
+
+a:hover {
+    opacity: 0.7;
+}
+
+header .dropdown-item a,
+header .dropdown-item li {
+    color: #000;
+    text-decoration: none 
+}
+
+.logo {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #23232e;
+    height: 8vh;
+    width: 100%;
+}
+
+main {
+    background-color: #000;
+    height: 100%;
+    /* 92vh */
+}
+
+footer {
+    position: fixed;
+    left: 45%;
+    bottom: 0px;
+}

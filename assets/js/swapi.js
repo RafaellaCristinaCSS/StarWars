@@ -1,15 +1,31 @@
-function filter(type, specificity) {
-    var data = [];
-    Promise.all([swapi_get(type)])
-        .then(function (results) {
-            for (i = 0; i < results[0].data.results.length; i++) {
-                path = "results[0].data.results" + "[" + i + "]." + specificity
-                data.push(eval(path))
-            }
-        });
-    console.log(data)
-};
-
-function swapi_get(parameter) {
-    return axios.get(`https://swapi.dev/api/${parameter}`);
-}
+$(document).ready(() => {
+    
+    $('.cards').click(function chamar_model() {
+        var id = $(this).attr("id");
+        let baseurl = `https://swapi.dev/api/${id}`
+        elements = document.getElementById('meuElemento');
+        var data;
+        if (id == 'films') {
+            var specificity = "title";
+            fetch(baseurl).then(Response => Response.json()).then(json => {
+                console.log(json.results)
+                json.results.forEach(result => {
+                    console.log(result +' e '+ specificity)
+                    data += '<p>' + result.title + '</p>'
+                });
+                elements.innerHTML = data
+                document.getElementById('modal').style.display = 'block';
+            })
+        }
+        var specificity = "name";
+        fetch(baseurl).then(Response => Response.json()).then(json => {
+            console.log(json.results)
+            json.results.forEach(result => {
+                console.log(result +' e '+ specificity)
+                data += '<p>' + result.name + '</p>'
+            });
+            elements.innerHTML = data
+            document.getElementById('modal').style.display = 'block';
+        })
+    })
+})

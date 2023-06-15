@@ -94,17 +94,17 @@
 
         var id = $(entity).attr("id");
         var element = key_entity_element;
-        var data;
+        var data = "<div class='conteiner-fluid'>";
         
         fetch(`https://swapi.dev/api/${id}`).then(Response => Response.json()).then(json => {
             var content = json.results[element];
             
             Object.keys(content).forEach(function (key) {
-                data += `<div class="col">` 
-                data += `<span style="text-transform: uppercase;font-weight: bold">${key} : </span>`;
-                data += `<span> ${content[key]} </span></div>`
+                data += `<div class="row">` 
+                data += `<p style="text-transform: uppercase;font-weight: bold">${key} : </p>`;
+                data += `<p> ${content[key]} </p></div>`
             });
-            
+            data += "</div>";
             myElement = document.getElementById('myElement');
             myElement.innerHTML = data
         })

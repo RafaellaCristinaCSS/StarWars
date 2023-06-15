@@ -11,9 +11,9 @@ $(document).ready(() => {
 
             json.results.forEach(result => {
                 if (id == 'films') {
-                    data += '<div class="col">' + result.title + '</div>'
+                    data += '<div class="col"><a>' + result.title + '</a></div>'
                 } else {
-                    data += '<div class="col">' + result.name + '</div>'
+                    data += '<div class="col"><a>' + result.name + '</a></div>'
                 }
             });
             elements.innerHTML = data

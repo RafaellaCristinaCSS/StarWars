@@ -21,9 +21,12 @@
             <a href="#" class="logo"><img id="logo" src="../../assets/images/logo.png" alt=""></a>
         </nav>
     </header>
+    <div class="loader_bg container" id="loading">
+        <div class="loader row justify-content-center"><img class="col-4" src="../../assets/images/loading.gif"
+                alt="#" /></div>
+    </div>
     <div class="content">
         <main>
-
             <div class="background_cards">
                 <div class="container">
                     <div class="row">
@@ -91,16 +94,17 @@
 </html>
 <script>
     function entity_element(entity, key_entity_element) {
-
+        var loadingElement = document.getElementById('loading');
+        loadingElement.style.display = 'block';
         var id = $(entity).attr("id");
         var element = key_entity_element;
         var data = "<div class='conteiner-fluid'>";
-        
+
         fetch(`https://swapi.dev/api/${id}`).then(Response => Response.json()).then(json => {
             var content = json.results[element];
-            
+            loadingElement.style.display = 'none';
             Object.keys(content).forEach(function (key) {
-                data += `<div class="row">` 
+                data += `<div class="row" style=" overflow: hidden">`
                 data += `<p style="text-transform: uppercase;font-weight: bold">${key} : </p>`;
                 data += `<p> ${content[key]} </p></div>`
             });

@@ -3,9 +3,7 @@
     padding: 0;
 }
 
-body{ 
-    background-color: #fff !important;
-}
+
 a {
     z-index: 999;
 }
@@ -61,7 +59,6 @@ main {
     
     background: #505050;
 }
-
 .cards {
     position: relative;
     background: #ffffff;

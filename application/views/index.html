@@ -24,7 +24,7 @@
     <div class="content">
         <main>
 
-            <section class="background_cards">
+            <div class="background_cards">
                 <div class="container">
                     <div class="row">
                         <div class="col-6 col-lg-4">
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
             <div id="modal" class="modal container-fluid">
                 <div class="row">
                     <div class="modal-content col-md-12">
@@ -90,6 +90,26 @@
 
 </html>
 <script>
+    function entity_element(entity, key_entity_element) {
+
+        var id = $(entity).attr("id");
+        var element = key_entity_element;
+        var data;
+        
+        fetch(`https://swapi.dev/api/${id}`).then(Response => Response.json()).then(json => {
+            var content = json.results[element];
+            
+            Object.keys(content).forEach(function (key) {
+                data += `<div class="col">` 
+                data += `<span style="text-transform: uppercase;font-weight: bold">${key} : </span>`;
+                data += `<span> ${content[key]} </span></div>`
+            });
+            
+            myElement = document.getElementById('myElement');
+            myElement.innerHTML = data
+        })
+    }
+
     document.getElementsByClassName('close')[0].addEventListener('click', function () {
         document.getElementById('modal').style.display = 'none';
         document.getElementById('logo').style.display = 'block';

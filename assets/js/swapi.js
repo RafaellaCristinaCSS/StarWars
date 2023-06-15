@@ -7,13 +7,11 @@ $(document).ready(() => {
         var data = '<div class="col mb-3" style="font-size:20px; text-transform: uppercase;font-weight: bold">' + id + '</div>';
 
         fetch(`https://swapi.dev/api/${id}`).then(Response => Response.json()).then(json => {
-            console.log(json.results)
-
-            json.results.forEach(result => {
+            json.results.forEach(function (result, kay) {
                 if (id == 'films') {
-                    data += '<div class="col"><a>' + result.title + '</a></div>'
+                    data += `<a onclick="entity_element(${id}, ${kay})" id=${kay} class="btn col">` + result.title + `</a>`
                 } else {
-                    data += '<div class="col"><a>' + result.name + '</a></div>'
+                    data += `<a onclick="entity_element(${id}, ${kay})" id=${kay} class="btn col">` + result.name + `</a>`
                 }
             });
             elements.innerHTML = data
@@ -21,4 +19,5 @@ $(document).ready(() => {
             document.getElementById('logo').style.display = 'none';
         })
     })
+
 })

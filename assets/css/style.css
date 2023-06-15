@@ -3,12 +3,22 @@
     padding: 0;
 }
 
+body{ 
+    background-color: #fff !important;
+}
 a {
     z-index: 999;
 }
 
 a:hover {
     opacity: 0.7;
+}
+
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 /* Header - Start */
@@ -21,9 +31,9 @@ header .dropdown-item li {
 .logo {
     color: #fff;
     text-decoration: none;
-    font-size: 24px;
+    font-size: 40px;
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 6px;
 }
 
 header nav {
@@ -48,73 +58,77 @@ main {
     position: relative;
     z-index: 0;
     text-align: center;
-    background: 	#1C1C1C;
+    
+    background: #505050;
 }
 
 .cards {
-    border-radius: 8px;
-    background: #fff;
+    position: relative;
+    background: #ffffff;
+    overflow: hidden;
+    transition: 0.3s;
     width: 350px;
     height: 200px;
     padding: 50px, 100px;
-    margin-bottom: 30px;
-    border: #000 solid 4px;
+    margin-bottom: 40px;
+    border: none;
+    border-radius: 40px;
 }
-.cards img{
+
+.cards img {
     color: #000;
 }
 
 .cards h3,
 .cards .h3 {
-    font-size: 16px;
+    font-size: 20px;
     margin: 0;
     padding: 0;
 }
+.cards:hover {
+    transform: scale3d(1.1, 1.1, 1);
+    background-color: #fff !important;
+  }
+  
 
-    /* Model */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .modal-content {
-        background-color: #fefefe;
-        margin: 8% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 100% ;
-        max-width: 400px;
-    }
-
-    .close {
-        color: #aaa;
-        display: flex;
-        justify-content: end;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-    #myElement li {
-        color: #000;
-    }
-/* Footer - Start */
-footer {
+/* Model */
+.modal {
+    display: none;
     position: fixed;
-    left: 45%;
-    bottom: 0px;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 8% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 100%;
+    max-width: 400px;
+}
+
+.close {
+    color: #1C1C1C;
+    display: flex;
+    justify-content: end;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#myElement li {
+    color: #000;
 }
